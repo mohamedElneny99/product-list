@@ -1,0 +1,25 @@
+<div class="container ">
+  <h1 class="text-center">Product List</h1>
+    <div *ngIf="!loading && !error" class="row row-cols-md-3 ">
+        <div *ngFor="let product of products">
+          <div class="card">
+            <img [src]="product.image" class="card-img-top" alt="{{product.title}}">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text"><strong>Price:</strong> {{ product.price }}$</p>
+              <p class="card-text"><strong>Rating:</strong> {{ product.rating.rate }} /5  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="loading" class="text-center">
+        <div class=" text-primary" >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div *ngIf="error" class="alert alert-danger text-center" >
+        Failed to load products. Please try again later.
+      </div>
+</div>
